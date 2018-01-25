@@ -7,9 +7,20 @@ public class TheCipherOfCaesar {
         StringBuilder sb = new StringBuilder();
         Scanner input = new Scanner(System.in);
         String text = "";
-        boolean isRepeatInputText = true;
-        int counter;
 
+        text = getCorrectText(text);
+
+        char[] outputText = text.toCharArray();
+        char[] modifiedText = new char[outputText.length];
+
+        char commonSymbol = mostPopularSymbol(outputText);
+
+    }
+
+    private static String getCorrectText(String text) {
+        Scanner input = new Scanner(System.in);
+        int counter;
+        boolean isRepeatInputText = true;
         while (isRepeatInputText) {
             System.out.print("Past TEXT for DECRYPTING here, or <0> for EXIT: ");
             text = (input.nextLine()).trim();
@@ -38,7 +49,14 @@ public class TheCipherOfCaesar {
 
         }
         System.out.println("Your text -> " + text);
+        return text;
+    }
 
+
+    private static char mostPopularSymbol(char[] symbols) {
+        char work = ' ';
+
+        return work;
     }
 
 }
