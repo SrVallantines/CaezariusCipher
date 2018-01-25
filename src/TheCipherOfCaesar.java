@@ -1,19 +1,25 @@
+
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class TheCipherOfCaesar {
 
     public static void main(String[] arguments) {
 
-        StringBuilder sb = new StringBuilder();
-        Scanner input = new Scanner(System.in);
         String text = "";
-
         text = getCorrectText(text);
 
         char[] outputText = text.toCharArray();
         char[] modifiedText = new char[outputText.length];
+        System.arraycopy(outputText,0,modifiedText,0,outputText.length);
+//        for(int i=0;i<outputText.length;i++) {
+//            modifiedText[i] = outputText[i];
+//        }
 
-        char commonSymbol = mostPopularSymbol(outputText);
+        Arrays.sort(modifiedText);
+        String a = Arrays.toString(outputText);
+        String b = Arrays.toString(modifiedText);
+        System.out.println("outputText -> "+a+"modifiedText -> "+b);
 
     }
 
@@ -53,10 +59,6 @@ public class TheCipherOfCaesar {
     }
 
 
-    private static char mostPopularSymbol(char[] symbols) {
-        char work = ' ';
 
-        return work;
-    }
 
 }
