@@ -19,7 +19,10 @@ public class TheCipherOfCaesar {
         Arrays.sort(modifiedText);
         String a = Arrays.toString(outputText);
         String b = Arrays.toString(modifiedText);
-        System.out.println("outputText -> "+a+"modifiedText -> "+b);
+        System.out.println("outputText -> "+a+'\n'+"modifiedText -> "+b);
+
+        char commonSymbol = mostPopularSymbol(modifiedText);
+        System.out.println("CommonSymbol -> "+commonSymbol);
 
     }
 
@@ -45,7 +48,7 @@ public class TheCipherOfCaesar {
                 if (text.charAt(counter) > 31 && text.charAt(counter) < 123) {
                     counter++;
                 } else {
-                    System.out.println("Please USE ONLY Latin alphabet, numbers and punctoation marks!");
+                    System.out.println("Please USE ONLY Latin alphabet, numbers and punctuation marks!");
                     System.out.println("Please try again!\n");
                     isRepeatInputText = true;
                     break;
@@ -58,7 +61,30 @@ public class TheCipherOfCaesar {
         return text;
     }
 
+    private static char mostPopularSymbol(char[] work){
+        char workSymbol=work[0];
+        int codeSymbol;
+        int maxCounter = 0;
+        int counter =0;
+        for(int i=0;i<(work.length-2);i++){
+           codeSymbol = (int)work[i];   // Check only from Latins letter
+            if((codeSymbol >64 &&codeSymbol<91) || (codeSymbol>96 && codeSymbol<123)){
+                if(work[i] == work[i+1]){
+                        counter++;
+                }else{
+                    if(counter>maxCounter){
+                        maxCounter=counter;
+                        counter=0;
+                        workSymbol=work[i];
+                    }
+                }
+            }else{
+                counter=0;
+            }
 
+        }
+        return workSymbol;
+    }
 
 
 }
