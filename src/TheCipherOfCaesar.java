@@ -24,7 +24,7 @@ public class TheCipherOfCaesar {
 
         Scanner scan = new Scanner(System.in);
         String temporary = "";
-        while(!temporary.equals("Y")&&!temporary.equals("N")){
+        while (!temporary.equals("Y") && !temporary.equals("N") && !temporary.equals("y") && !temporary.equals("n")) {
             System.out.print("ИМА ЛИ ПРАВИЛНО РАЗКОДИРАН ТЕКСТ ТУК? ( Y or N )");
             temporary = scan.nextLine();
         }
@@ -91,25 +91,77 @@ public class TheCipherOfCaesar {
         return workSymbol;
     }
 
-    private static void veryOftenDecrypting(char[]outputText, char[]modifiedText,char symbol){
+    private static void veryOftenDecrypting(char[] outputText, char[] modifiedText, char symbol) {
         int tempKey = 0;
-        if((96<(int)symbol) && ((int)symbol<123)){ // Lower Latins Alphabet
-            tempKey = ((int)symbol) - 101;         // This is symbol'e'
+        if ((96 < (int) symbol) && ((int) symbol < 123)) { // Lower Latins Alphabet
+            tempKey = ((int) symbol) - 101;         // This is symbol'e'
         }
-        if((64<(int)symbol) && ((int)symbol<91)){ // Biggest Latins Alphabet
-            tempKey = ((int)symbol) - 69;         // This is symbol'E'
+        if ((64 < (int) symbol) && ((int) symbol < 91)) { // Biggest Latins Alphabet
+            tempKey = ((int) symbol) - 69;         // This is symbol'E'
         }
         decriptingUnit(outputText, modifiedText, tempKey);
+        printingDecriptionText(modifiedText);
 
 
-    }
-
-    private static void decriptingUnit(char[]outputText, char[]modifiedText, int key){
-        for(int i=0;i<outputText.length;i++){
-
+        tempKey = 0;
+        if ((96 < (int) symbol) && ((int) symbol < 123)) { // Lower Latins Alphabet
+            tempKey = ((int) symbol) - 116;         // This is symbol't'
         }
+        if ((64 < (int) symbol) && ((int) symbol < 91)) { // Biggest Latins Alphabet
+            tempKey = ((int) symbol) - 84;         // This is symbol'T'
+        }
+        decriptingUnit(outputText, modifiedText, tempKey);
+        printingDecriptionText(modifiedText);
 
+        tempKey = 0;
+        if ((96 < (int) symbol) && ((int) symbol < 123)) { // Lower Latins Alphabet
+            tempKey = ((int) symbol) - 104;         // This is symbol'h'
+        }
+        if ((64 < (int) symbol) && ((int) symbol < 91)) { // Biggest Latins Alphabet
+            tempKey = ((int) symbol) - 72;         // This is symbol'H'
+        }
+        decriptingUnit(outputText, modifiedText, tempKey);
+        printingDecriptionText(modifiedText);
 
     }
+
+    private static void decriptingUnit(char[] outputText, char[] modifiedText, int key) {
+        int workCode;
+        for (int i = 0; i < outputText.length; i++) {
+            workCode = (int) outputText[i] + key;
+            if ((64 < outputText[i]) && (outputText[i] < 91)) { // Bigger Latins Alphabet
+                if ((workCode) > 90) {   // Increase Bigger Latins
+                    workCode = (workCode % 91 + 65);
+                }
+
+                if ((workCode) < 65) {   // Decrease Bigger Latins
+                    workCode = (90 - 65 % workCode);
+                }
+                modifiedText[i] = (char) workCode;
+            }
+
+            if ((96 < outputText[i]) && (outputText[i] < 123)) { // Lower Latins Alphabet
+                if ((workCode) > 122) {   // Increase lower Latins
+                    workCode = (workCode % 123 + 97);
+                }
+
+                if ((workCode) < 97) {   // Decrease lower Latins
+                    workCode = (122 - 96 % workCode);
+                }
+                modifiedText[i] = (char) workCode;
+
+            }
+        }
+    }
+
+    private static void printingDecriptionText(char[] text){
+
+        StringBuilder sb = new StringBuilder();
+        for(char work: text){
+            sb.append(work);
+        }
+        System.out.print("Decoding text =-> "+sb+'\n');
+    }
+
 
 }
