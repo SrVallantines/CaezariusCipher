@@ -11,18 +11,17 @@ public class TheCipherOfCaesar {
 
         char[] outputText = text.toCharArray();
         char[] modifiedText = new char[outputText.length];
-        System.arraycopy(outputText,0,modifiedText,0,outputText.length);
-//        for(int i=0;i<outputText.length;i++) {
-//            modifiedText[i] = outputText[i];
-//        }
-
+        System.arraycopy(outputText, 0, modifiedText, 0, outputText.length);
         Arrays.sort(modifiedText);
+
         String a = Arrays.toString(outputText);
         String b = Arrays.toString(modifiedText);
-        System.out.println("outputText -> "+a+'\n'+"modifiedText -> "+b);
+        System.out.println("outputText -> " + a + '\n' + "modifiedText -> " + b);
 
         char commonSymbol = mostPopularSymbol(modifiedText);
-        System.out.println("CommonSymbol -> "+commonSymbol);
+        System.out.println("CommonSymbol -> " + commonSymbol);
+
+
 
     }
 
@@ -61,28 +60,27 @@ public class TheCipherOfCaesar {
         return text;
     }
 
-    private static char mostPopularSymbol(char[] work){
-        char workSymbol=work[0];
+    private static char mostPopularSymbol(char[] work) {
+        char workSymbol = work[0];
         int codeSymbol;
         int maxCounter = 0;
-        int counter =0;
-        for(int i=0;i<(work.length-2);i++){
-           codeSymbol = (int)work[i];   // Check only from Latins letter
-            if((codeSymbol >64 &&codeSymbol<91) || (codeSymbol>96 && codeSymbol<123)){
-                if(work[i] == work[i+1]){
-                        counter++;
-                }else{
-                    if(counter>maxCounter){
-                        maxCounter=counter;
-                        counter=0;
-                        workSymbol=work[i];
-                    }
-                }
-            }else{
-                counter=0;
-            }
+        int counter = 0;
 
+        for (int i = 0; i < (work.length - 1); i++) {
+            codeSymbol = (int) work[i];   // Check only from Latins letter
+            if ((codeSymbol > 64 && codeSymbol < 91) || (codeSymbol > 96 && codeSymbol < 123)) {
+                if (work[i] == work[i + 1]) {
+                    counter++;
+                } else {
+                    counter = 0;
+                }
+                if (counter > maxCounter) {
+                    maxCounter = counter;
+                    workSymbol = work[i];
+                }
+            }
         }
+
         return workSymbol;
     }
 
