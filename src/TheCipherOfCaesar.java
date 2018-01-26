@@ -25,10 +25,18 @@ public class TheCipherOfCaesar {
         Scanner scan = new Scanner(System.in);
         String temporary = "";
         while (!temporary.equals("Y") && !temporary.equals("N") && !temporary.equals("y") && !temporary.equals("n")) {
-            System.out.print("ИМА ЛИ ПРАВИЛНО РАЗКОДИРАН ТЕКСТ ТУК? ( Y or N )");
+            System.out.print("Is there a CORRECTLY DECODED TEXT here? ( <Y> or <N> )");
             temporary = scan.nextLine();
         }
-
+        if (temporary.equals("N") || temporary.equals("n")){
+            System.out.println("\n OK! Then look AT ALL POSSIBLE decoding versions.\n");
+            for(int key=1;key<27;key++){
+                decriptingUnit(outputText, modifiedText, (key + 1));
+                System.out.print("Numb." + key + ": ");
+                printingDecriptionText(modifiedText);
+            }
+        }
+        System.out.println('\n' + "THANKS! IT WAS NICE to be useful to you!!!");
 
     }
 
@@ -129,6 +137,9 @@ public class TheCipherOfCaesar {
         int workCode;
         for (int i = 0; i < outputText.length; i++) {
             workCode = (int) outputText[i] + key;
+            if((int)outputText[i] == 32) {
+                modifiedText[i] = outputText[i];
+            }
             if ((64 < outputText[i]) && (outputText[i] < 91)) { // Bigger Latins Alphabet
                 if ((workCode) > 90) {   // Increase Bigger Latins
                     workCode = (workCode % 91 + 65);
