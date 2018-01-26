@@ -4,7 +4,6 @@
     <list default="true" id="944bc282-2617-410b-99d3-c70ae0729bc7" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CaesariusCipher/TheCipherOfCaesar.class" afterPath="$PROJECT_DIR$/out/production/CaesariusCipher/TheCipherOfCaesar.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TheCipherOfCaesar.java" afterPath="$PROJECT_DIR$/src/TheCipherOfCaesar.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -244,7 +243,14 @@
       <option name="project" value="LOCAL" />
       <updated>1516913738555</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Finalizad check-modul for most popular symbol">
+      <created>1516957096445</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1516957096445</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -282,7 +288,8 @@
     <MESSAGE value="shaped input module" />
     <MESSAGE value="cloning and sorting input text" />
     <MESSAGE value="check for most popular symbol in the text" />
-    <option name="LAST_COMMIT_MESSAGE" value="check for most popular symbol in the text" />
+    <MESSAGE value="Finalizad check-modul for most popular symbol" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finalizad check-modul for most popular symbol" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
