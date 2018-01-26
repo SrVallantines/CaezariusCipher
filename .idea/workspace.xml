@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="944bc282-2617-410b-99d3-c70ae0729bc7" name="Default" comment="">
+    <list default="true" id="944bc282-2617-410b-99d3-c70ae0729bc7" name="Default" comment="It`s ready to works">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CaesariusCipher/TheCipherOfCaesar.class" afterPath="$PROJECT_DIR$/out/production/CaesariusCipher/TheCipherOfCaesar.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TheCipherOfCaesar.java" afterPath="$PROJECT_DIR$/src/TheCipherOfCaesar.java" />
@@ -19,8 +19,8 @@
       <file leaf-file-name="TheCipherOfCaesar.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/TheCipherOfCaesar.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1808">
-              <caret line="113" column="41" lean-forward="false" selection-start-line="113" selection-start-column="41" selection-end-line="113" selection-end-column="41" />
+            <state relative-caret-position="176">
+              <caret line="92" column="77" lean-forward="false" selection-start-line="92" selection-start-column="77" selection-end-line="92" selection-end-column="77" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -279,7 +279,14 @@
       <option name="project" value="LOCAL" />
       <updated>1516987345837</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="added encoding modul after the final touches">
+      <created>1516998218942</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1516998218942</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -320,7 +327,8 @@
     <MESSAGE value="Finalizad check-modul for most popular symbol and first part of decrypting" />
     <MESSAGE value="Three most popular variants of decoding" />
     <MESSAGE value="final touches" />
-    <option name="LAST_COMMIT_MESSAGE" value="final touches" />
+    <MESSAGE value="added encoding modul after the final touches" />
+    <option name="LAST_COMMIT_MESSAGE" value="added encoding modul after the final touches" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -469,8 +477,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/TheCipherOfCaesar.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1808">
-          <caret line="113" column="41" lean-forward="false" selection-start-line="113" selection-start-column="41" selection-end-line="113" selection-end-column="41" />
+        <state relative-caret-position="176">
+          <caret line="92" column="77" lean-forward="false" selection-start-line="92" selection-start-column="77" selection-end-line="92" selection-end-column="77" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
