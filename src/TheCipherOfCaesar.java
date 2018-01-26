@@ -5,8 +5,23 @@ import java.util.Scanner;
 public class TheCipherOfCaesar {
 
     public static void main(String[] arguments) {
+        Scanner scan = new Scanner(System.in);
+        String text = "";
+        String temporary = "";
 
-        String text = getCorrectText();
+        while (!temporary.equals("Y") && !temporary.equals("N") && !temporary.equals("y") && !temporary.equals("n")) {
+            System.out.print("HELLO! Before decrypting, would you like to first encrypt any your text? ( <Y> or <N> )");
+            temporary = scan.nextLine();
+        }
+        if (temporary.equals("Y") || temporary.equals("y")){
+            text = getCorrectText("Input TEXT for ENCRYPTING here: ");
+            int encodKey = getCorrectKey();;
+            System.out.println("KONTROLN KEY ->>>"+encodKey);
+            coderUnit(text,encodKey);
+        }
+
+
+        text = getCorrectText("\nPast TEXT for DECRYPTING here: ");
 
         char[] outputText = text.toCharArray();
         char[] modifiedText = new char[outputText.length];
@@ -22,8 +37,7 @@ public class TheCipherOfCaesar {
 
         veryOftenDecrypting(outputText, modifiedText, commonSymbol);
 
-        Scanner scan = new Scanner(System.in);
-        String temporary = "";
+        temporary = "";
         while (!temporary.equals("Y") && !temporary.equals("N") && !temporary.equals("y") && !temporary.equals("n")) {
             System.out.print("Is there a CORRECTLY DECODED TEXT here? ( <Y> or <N> )");
             temporary = scan.nextLine();
@@ -40,21 +54,16 @@ public class TheCipherOfCaesar {
 
     }
 
-    private static String getCorrectText() {
+    private static String getCorrectText(String message) {
         Scanner input = new Scanner(System.in);
         String text = "";
         int counter;
         boolean isRepeatInputText = true;
         while (isRepeatInputText) {
-            System.out.print("Past TEXT for DECRYPTING here, or <0> for EXIT: ");
+            System.out.print(message);
             text = (input.nextLine()).trim();
             if (text.equals(" ") || text.isEmpty()) {
                 System.out.println("This is INCORRECT text! Please try again!\n");
-                continue;
-            }
-            if (text.length() == 1 && text.equals("0")) {
-                System.out.println("Thank you! Good By!");
-                isRepeatInputText = false;
                 continue;
             }
             counter = 0;
@@ -74,6 +83,39 @@ public class TheCipherOfCaesar {
         }
         System.out.println("Your text -> " + text);
         return text;
+    }
+
+    private static int getCorrectKey() {
+        Scanner input = new Scanner(System.in);
+        String text = "";
+        int counter;
+        boolean isRepeatInputText = true;
+        while (isRepeatInputText) {
+            System.out.print("Please, input key for ENCRYPTING here: ");
+            text = (input.nextLine()).trim();
+            if (text.equals(" ") || text.isEmpty()) {
+                System.out.println("This is INCORRECT key! Please try again!\n");
+                continue;
+            }
+            counter = 0;
+            while (counter < text.length()) {
+                isRepeatInputText = false;
+                if ((int)text.charAt(counter) > 47 && (int)text.charAt(counter) < 55) {
+                    counter++;
+                } else {
+                    System.out.println("Please USE ONLY numbers from 0 to 26!");
+                    System.out.println("Please try again!\n");
+                    isRepeatInputText = true;
+                    break;
+                }
+            }
+            if(Integer.valueOf(text)<0 ||Integer.valueOf(text)>26){
+                System.out.println("This is INCORRECT key! Please try again!\n");
+                isRepeatInputText = true;
+            }
+        }
+        System.out.println("Your key -> " + text);
+        return Integer.valueOf(text);
     }
 
     private static char mostPopularSymbol(char[] work) {
@@ -174,5 +216,33 @@ public class TheCipherOfCaesar {
         System.out.print("Decoding text =-> "+sb+'\n');
     }
 
+    private static void coderUnit(String text, int key){
+        int work;
+        char symbol;
+        System.out.print("Your CODING text is: ");
+        for(int i=0; i< text.length();i++){
+            symbol = text.charAt(i);
+            work = (int)(symbol);
+            if ((64 < work) && (work < 91)) { // Bigger Latins Alphabet
+                if (work + key > 90) {   // Increase Bigger Latins
+                    symbol = (char)((work + key) % 91 + 65);
+                }else{
+                    symbol = (char)(work + key);
+                }
+
+            }
+
+            if ((96 < work) && (work < 123)) { // Lower Latins Alphabet
+                if ((work + key) > 122) {   // Increase lower Latins
+                    symbol = (char) ((work + key) % 123 + 97);
+                }else{
+                    symbol = (char)(work + key);
+                }
+
+            }
+            System.out.print(symbol);
+        }
+
+    }
 
 }
