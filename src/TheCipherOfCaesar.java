@@ -6,8 +6,7 @@ public class TheCipherOfCaesar {
 
     public static void main(String[] arguments) {
 
-        String text = "";
-        text = getCorrectText(text);
+        String text = getCorrectText();
 
         char[] outputText = text.toCharArray();
         char[] modifiedText = new char[outputText.length];
@@ -21,12 +20,21 @@ public class TheCipherOfCaesar {
         char commonSymbol = mostPopularSymbol(modifiedText);
         System.out.println("CommonSymbol -> " + commonSymbol);
 
+        veryOftenDecrypting(outputText, modifiedText, commonSymbol);
+
+        Scanner scan = new Scanner(System.in);
+        String temporary = "";
+        while(!temporary.equals("Y")&&!temporary.equals("N")){
+            System.out.print("ИМА ЛИ ПРАВИЛНО РАЗКОДИРАН ТЕКСТ ТУК? ( Y or N )");
+            temporary = scan.nextLine();
+        }
 
 
     }
 
-    private static String getCorrectText(String text) {
+    private static String getCorrectText() {
         Scanner input = new Scanner(System.in);
+        String text = "";
         int counter;
         boolean isRepeatInputText = true;
         while (isRepeatInputText) {
@@ -80,9 +88,28 @@ public class TheCipherOfCaesar {
                 }
             }
         }
-
         return workSymbol;
     }
 
+    private static void veryOftenDecrypting(char[]outputText, char[]modifiedText,char symbol){
+        int tempKey = 0;
+        if((96<(int)symbol) && ((int)symbol<123)){ // Lower Latins Alphabet
+            tempKey = ((int)symbol) - 101;         // This is symbol'e'
+        }
+        if((64<(int)symbol) && ((int)symbol<91)){ // Biggest Latins Alphabet
+            tempKey = ((int)symbol) - 69;         // This is symbol'E'
+        }
+        decriptingUnit(outputText, modifiedText, tempKey);
+
+
+    }
+
+    private static void decriptingUnit(char[]outputText, char[]modifiedText, int key){
+        for(int i=0;i<outputText.length;i++){
+
+        }
+
+
+    }
 
 }
